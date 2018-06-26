@@ -56,6 +56,9 @@ BOARD_SUPPRESS_SECURE_ERASE := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 RECOVERY_VARIANT := twrp
 
+# Thermal
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/recovery/thermal-engine-8974.conf:system/etc/thermal-engine-8974.conf
+
 # TWRP
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_DEFAULT_BRIGHTNESS := 114
