@@ -66,7 +66,7 @@ on boot
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq 1497600
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq 1497600
 
-service thermal-engine /system/bin/thermal-engine
+service thermal-engine /sbin/thermal-engine
    class main
    user root
    group root
@@ -85,6 +85,14 @@ on fs
     chown system drmrpc /dev/qseecom
     chmod 0664 /dev/ion
     chown system system /dev/ion
+    
+    # apply chmod for parted
+    chmod 0775 /sbin/e2fsck
+    chmod 0775 /sbin/mke2fs
+    chmod 0775 /sbin/parted
+    chmod 0775 /sbin/resize2fs
+    chmod 0775 /sbin/sdparted
+    chmod 0775 /sbin/tune2fs
 
 # separate copy needed to use /sbin/linker64 instead of /system/bin/linker64
 service sbinqseecomd /sbin/qseecomd
